@@ -13,14 +13,19 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationModule, ExternalAuthService } from './authentication';
 import {TransferHttpCacheModule} from '@nguniversal/common';
+import { OrdersV1Component } from './orders-v1/orders-v1.component';
+import { OrdersService } from './services/orders.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    OrdersV1Component
   ],
   imports: [
     FormsModule,
+    CommonModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HammerModule,
     BrowserAnimationsModule,
@@ -33,7 +38,7 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
     IgxRippleModule,
     TransferHttpCacheModule
   ],
-  providers: [ ],
+  providers: [OrdersService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
