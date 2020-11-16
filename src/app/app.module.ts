@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationModule, ExternalAuthService } from './authentication';
+import {TransferHttpCacheModule} from '@nguniversal/common';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { AuthenticationModule, ExternalAuthService } from './authentication';
   ],
   imports: [
     FormsModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HammerModule,
     BrowserAnimationsModule,
     // NOTE: `AuthenticationModule` defines child routes, must be imported before root `AppRoutingModule`
@@ -29,7 +30,8 @@ import { AuthenticationModule, ExternalAuthService } from './authentication';
     IgxNavigationDrawerModule,
     IgxNavbarModule,
     IgxLayoutModule,
-    IgxRippleModule
+    IgxRippleModule,
+    TransferHttpCacheModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]
